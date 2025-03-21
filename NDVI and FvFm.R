@@ -117,3 +117,27 @@ fit_and_report <- function(timepoint, data) {
 for (i in 1:7) {
   results[[paste0("T", i)]] <- fit_and_report(i, split_by_time[[i]])
 }
+
+# ---- Example: Investigate NDVI response at Timepoint 2 ----
+
+# Access posterior draws from the NDVI model at T2
+ndvi_t2_draws <- as.matrix(results$T2$NDVI_model)
+
+# Calculate probabilities of direction
+mean(ndvi_t2_draws[, "Glyphosate1"] < 0)  # Prob that low glyphosate reduced NDVI
+mean(ndvi_t2_draws[, "Glyphosate2"] > 0)  # Prob that high glyphosate increased NDVI
+mean(ndvi_t2_draws[, "TiO21"] > 0)        # Prob that TiO2 increased NDVI
+
+# Examine interaction terms if included
+interaction_terms <- grep(":", colnames(ndvi_t2_draws), value = TRUE)
+if (length(interaction_terms) > 0) {
+  sapply(interaction_terms, function(term) {
+    mean(ndvi_t2_draws[, term] < 0)
+  })
+}
+
+# Summarise posterior estimates for all terms
+describe_posterior(results$T2$NDVI_model, effects = "fixed", ci = 0.89)
+
+# Visual posterior predictive check
+pp_check(results$T2$NDVI_model)
