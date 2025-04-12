@@ -8,7 +8,7 @@ library(plyr)      # for ddply in summarySE
 library(ggplot2)
 
 # 2) Read the contact core data
-contact_core <- read.delim("~/Academia/St Andrews/PhD/Projects/Fieldwork/Multiple stressor fieldwork experiment/Results/Analysis and visualisation/Contact core data.txt")
+contact_core <- read.delim(here("contact_core_data.txt"))
 
 # 3) Define summarySE
 summarySE <- function(data = NULL, measurevar, groupvars = NULL,
