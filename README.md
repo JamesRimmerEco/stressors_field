@@ -16,6 +16,11 @@ This repository accompanies the manuscript *Response of natural estuarine microp
 - `CSM formatted.txt` — Cohesive Strength Meter data, erosion thresholds, shear stress and erosion type.
 - `Logger_1.xlsx`, `Logger_7.xlsx`, `Moleman_1.xlsx`, `Moleman_2.xlsx` — Light and temperature logger outputs. Each has 3,700+ rows with timestamp, temperature, and lux.
 
+### Supplementary Figure S1
+
+Photograph of the experimental field site setup with labels, included as `field_experiment_photo.jpg`. 
+
+
 ### Scripts
 
 - `NDVI and FvFm.R` — Fits Bayesian mixed models to Fv/Fm and NDVI at each timepoint.
