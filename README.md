@@ -18,7 +18,7 @@ This repository accompanies the manuscript *Response of natural estuarine microp
 
 ### Supplementary Figure S1
 
-Photograph of the experimental field site setup with labels (in gitignore). 
+Photograph of the experimental field site setup with labels (in gitignore, available with the paper). 
 
 ### Supplementary Figure S2
 Bar plot of sediment shear stress thresholds (Type I erosion) by treatment following exposure, 
@@ -52,15 +52,17 @@ Corresponds to analysis described in the manuscript macrofauna section (in gitig
 
 ## Reproducing Manuscript Results
 
-This repository includes all R scripts and data required to reproduce figures and statistical results reported in the manuscript. Bayesian model results can be checked against the paper by re-running:
+This repository includes all R scripts and data required to reproduce figures 
+and statistical results reported in the manuscript. Bayesian model results can be checked 
+against the paper by re-running:
 
 ```r
-source("NDVI and FvFm.R")            # Timepoint-specific Bayesian mixed models
-source("chlorophyll.R")             # Chlorophyll a and water interaction
+source("NDVI and FvFm.R")            # Timepoint-specific mixed models
+source("chlorophyll.R")             # Chlorophyll a
 source("coll_carbohydrates.R")      # Colloidal EPS responses
 source("total_carbohydrates.R")     # Total carbohydrates
 source("shear_stress_models.R")     # CSM erosion threshold models
-source("macrofauna_analysis.R")     # Community-level and univariate macrofauna effects
+source("macrofauna_analysis.R")     # Macrofauna
 source("environmental_models.R")    # Light/temperature effects on MPB
 ```
 
