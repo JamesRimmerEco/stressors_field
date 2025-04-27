@@ -18,18 +18,19 @@ This repository accompanies the manuscript *Response of natural estuarine microp
 
 ### Supplementary Figure S1
 
-Photograph of the experimental field site setup with labels, included as `field_experiment_photo.jpg`. 
+Photograph of the experimental field site setup with labels (in gitignore). 
 
 ### Supplementary Figure S2
 Bar plot of sediment shear stress thresholds (Type I erosion) by treatment following exposure, 
 generated using shear_stress_models.R. This figure corresponds to Supplementary Figure 2 in the 
-manuscript and shows means and standard deviations for each glyphosate and TiO₂ NP treatment combination.
+manuscript and shows means and standard deviations for each glyphosate and TiO₂ NP treatment combination
+(in gitignore).
 
 ### Supplementary Figure S3
 
 nMDS ordination plot of macrofauna community structures (`Figure_S3_NMDS_macrofauna.png`) showing 
 relative position of experimental units based on Bray-Curtis dissimilarity. Generated using `NMDS plots.R`. 
-Corresponds to analysis described in the manuscript macrofauna section.
+Corresponds to analysis described in the manuscript macrofauna section (in gitignore). 
 
 
 ### Scripts
