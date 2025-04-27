@@ -271,20 +271,20 @@ fig4b_ndvi_tio2 <- ggplot(ndvi_sum_tio2, aes(
 fig4a_ndvi_gly
 fig4b_ndvi_tio2
 
-Figure3 <- (fig3a_fvfm_gly / fig3b_fvfm_tio2) +
+Figure2 <- (fig3a_fvfm_gly / fig3b_fvfm_tio2) +
   plot_annotation(tag_levels = "a") &
   theme(
     plot.tag = element_text(size = 22, face = "bold")
   )
 
 # Save the stacked figure
-ggsave("Figure3.png", Figure3, width = 8, height = 10, dpi = 300)
+ggsave("Figure2.png", Figure2, width = 8, height = 10, dpi = 300)
 
 # Similarly for Figure 4
-Figure4 <- (fig4a_ndvi_gly / fig4b_ndvi_tio2) +
+Figure3 <- (fig4a_ndvi_gly / fig4b_ndvi_tio2) +
   plot_annotation(tag_levels = "a") &
   theme(
     plot.tag = element_text(size = 22, face = "bold")
   )
 
-ggsave("Figure4.png", Figure4, width = 8, height = 10, dpi = 300)
+ggsave("Figure3.png", Figure3, width = 8, height = 10, dpi = 300)
