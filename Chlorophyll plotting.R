@@ -82,10 +82,11 @@ fig_chlor_post <- ggplot(sum_chlor_post, aes(
   ) +
   theme_classic() +
   theme(
-    axis.text   = element_text(size = 20),
-    axis.title  = element_text(size = 25),
-    legend.text = element_text(size = 20),
-    legend.title= element_text(size = 20)
+    axis.text   = element_text(size = 12),
+    axis.title  = element_text(size = 14),
+    legend.text = element_text(size = 12),
+    legend.title= element_text(size = 14),
+    plot.title  = element_text(size = 22, face = "bold") # for (a)/(b) if you add it
   ) +
   scale_fill_manual(
     values = c("0" = "#999999", "12000" = "#56B4E9", "20000" = "#0072B2"),
