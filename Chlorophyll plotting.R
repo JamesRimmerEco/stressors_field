@@ -6,6 +6,7 @@
 library(dplyr)
 library(plyr)      # for ddply in summarySE
 library(ggplot2)
+library(here)
 
 # 2) Read the contact core data
 contact_core <- read.delim(here("contact_core_data.txt"))
@@ -98,4 +99,4 @@ fig_chlor_post <- ggplot(sum_chlor_post, aes(
 
 # 9) Print or save the figure
 print(fig_chlor_post)
-ggsave("Fig5.png", fig_chlor_post, width = 8, height = 6, dpi = 300)
+ggsave("Figure4.png", fig_chlor_post, width = 8, height = 6, dpi = 300)

@@ -54,39 +54,66 @@ sum_tot_post$TiO2_values <- factor(recode(as.numeric(sum_tot_post$TiO2), `1`=0, 
 
 # 7) Plot colloidal carbs
 fig_coll <- ggplot(sum_coll_post, aes(x = TiO2_values, y = Colloidal.carbs, fill = Gly_values)) +
-  geom_bar(stat = "summary", fun = "mean", position = position_dodge(0.9), colour = "black") +
+  geom_bar(
+    position = position_dodge(width = 0.9),
+    stat     = "summary",
+    fun      = "mean",
+    colour   = "black"
+  ) +
   geom_errorbar(aes(ymin = Colloidal.carbs - sd, ymax = Colloidal.carbs + sd),
-                position = position_dodge(0.9), width = 0.3) +
+                width = 0.3,
+                position = position_dodge(width = 0.9)) +
   coord_cartesian(ylim = c(0, 360)) +
-  scale_fill_manual(values = c("0"="#999999", "12000"="#56B4E9", "20000"="#0072B2"),
-                    name = expression(paste("Glyphosate (", mu, "g L"^-1, ")"))) +
-  labs(x = expression(paste("TiO"[2], " (", mu, "g L"^-1, ")")),
-       y = expression(paste("Colloidal carbohydrates (", mu, "g g"^-1, ")")),
-       title = "(a)") +
+  scale_fill_manual(
+    values = c("0"="#999999", "12000"="#56B4E9", "20000"="#0072B2"),
+    name   = expression(paste("Glyphosate (", mu, "g L"^-1, ")"))
+  ) +
+  labs(
+    x = expression(paste("TiO"[2], " (", mu, "g L"^-1, ")")),
+    y = expression(paste("Colloidal carbohydrates (", mu, "g g"^-1, ")"))
+  ) +
   theme_classic() +
-  theme(axis.text = element_text(size = 12),
-        axis.title = element_text(size = 14),
-        legend.text = element_text(size = 12),
-        legend.title = element_text(size = 14))
+  theme(
+    axis.text   = element_text(size = 12),
+    axis.title  = element_text(size = 14),
+    legend.text = element_text(size = 12),
+    legend.title= element_text(size = 14)
+  )
 
 # 8) Plot total carbs
 fig_tot <- ggplot(sum_tot_post, aes(x = TiO2_values, y = Total.carbs, fill = Gly_values)) +
-  geom_bar(stat = "summary", fun = "mean", position = position_dodge(0.9), colour = "black") +
+  geom_bar(
+    position = position_dodge(width = 0.9),
+    stat     = "summary",
+    fun      = "mean",
+    colour   = "black"
+  ) +
   geom_errorbar(aes(ymin = Total.carbs - sd, ymax = Total.carbs + sd),
-                position = position_dodge(0.9), width = 0.3) +
+                width = 0.3,
+                position = position_dodge(width = 0.9)) +
   coord_cartesian(ylim = c(0, 8000)) +
-  scale_fill_manual(values = c("0"="#999999", "12000"="#56B4E9", "20000"="#0072B2"),
-                    name = expression(paste("Glyphosate (", mu, "g L"^-1, ")"))) +
-  labs(x = expression(paste("TiO"[2], " (", mu, "g L"^-1, ")")),
-       y = expression(paste("Total carbohydrates (", mu, "g g"^-1, ")")),
-       title = "(b)") +
+  scale_fill_manual(
+    values = c("0"="#999999", "12000"="#56B4E9", "20000"="#0072B2"),
+    name   = expression(paste("Glyphosate (", mu, "g L"^-1, ")"))
+  ) +
+  labs(
+    x = expression(paste("TiO"[2], " (", mu, "g L"^-1, ")")),
+    y = expression(paste("Total carbohydrates (", mu, "g g"^-1, ")"))
+  ) +
   theme_classic() +
-  theme(axis.text = element_text(size = 12),
-        axis.title = element_text(size = 14),
-        legend.text = element_text(size = 12),
-        legend.title = element_text(size = 14))
+  theme(
+    axis.text   = element_text(size = 12),
+    axis.title  = element_text(size = 14),
+    legend.text = element_text(size = 12),
+    legend.title= element_text(size = 14)
+  )
 
 # 9) Combine and export
-combined_plot <- fig_coll / fig_tot + plot_layout(guides = "collect")
-print(combined_plot)
-ggsave("Figure6.png", combined_plot, width = 8, height = 10, dpi = 300)
+Figure5 <- (fig_coll / fig_tot) +
+  plot_annotation(tag_levels = "a") &
+  theme(
+    plot.tag = element_text(size = 22, face = "bold")
+  )
+
+# Save
+ggsave("Figure5.png", Figure5, width = 8, height = 10, dpi = 300)
